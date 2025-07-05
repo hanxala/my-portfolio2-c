@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface Project {
   title: string;
@@ -8,7 +11,8 @@ interface Project {
 }
 
 export default function Projects() {
-  const projects: Project[] = [
+  // All available projects
+  const allProjects: Project[] = [
     {
       title: "Exam Elite - Student Competition App",
       description: "Developed an Android application using Kotlin and Firebase that allows students to participate in quizzes and coding competitions. Features include authentication, competition lists, and real-time leaderboard functionality.",
@@ -23,6 +27,26 @@ export default function Projects() {
     }
   ];
 
+  // Pagination state and logic
+  const projectsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageCount = Math.ceil(allProjects.length / projectsPerPage);
+  
+  // Get current page projects
+  const currentProjects = allProjects.slice(
+    currentPage * projectsPerPage,
+    (currentPage + 1) * projectsPerPage
+  );
+
+  // Pagination handlers
+  const handlePrevious = () => {
+    setCurrentPage(prev => Math.max(0, prev - 1));
+  };
+  
+  const handleNext = () => {
+    setCurrentPage(prev => Math.min(pageCount - 1, prev + 1));
+  };
+
   return (
     <section id="projects" className="py-16 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
@@ -32,7 +56,7 @@ export default function Projects() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <div key={index} className="border border-secondary/20 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <div className="h-48 bg-secondary/20 relative">
                 {project.image && (
@@ -64,14 +88,27 @@ export default function Projects() {
         </div>
         
         <div className="flex justify-center mt-12">
-          <div className="flex gap-4">
-            <button className="w-10 h-10 rounded-full border border-text-secondary flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+          <div className="flex gap-2 sm:gap-4">
+            <button 
+              onClick={handlePrevious}
+              disabled={currentPage === 0}
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-text-secondary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+              aria-label="Previous page"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button className="w-10 h-10 rounded-full border border-text-secondary flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+            <div className="flex items-center px-2 sm:px-3">
+              <span className="text-xs sm:text-sm">{currentPage + 1} / {pageCount}</span>
+            </div>
+            <button 
+              onClick={handleNext}
+              disabled={currentPage === pageCount - 1}
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-text-secondary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+              aria-label="Next page"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
