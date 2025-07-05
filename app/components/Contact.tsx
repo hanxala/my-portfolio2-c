@@ -7,7 +7,7 @@ export default function Contact() {
         <div className="bg-secondary p-8 md:p-12 rounded-lg">
           <h2 className="text-3xl font-bold text-white mb-2">Get In Touch</h2>
           <p className="text-text-light mb-8 max-w-3xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Feel free to reach out to me for any inquiries or opportunities.
           </p>
           
           <form className="space-y-6 max-w-2xl">

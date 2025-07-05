@@ -12,13 +12,13 @@ export default function Projects() {
     {
       title: "Exam Elite - Student Competition App",
       description: "Developed an Android application using Kotlin and Firebase that allows students to participate in quizzes and coding competitions. Features include authentication, competition lists, and real-time leaderboard functionality.",
-      image: "/project-placeholder.svg",
+      image: "/exam-elite.jpg",
       link: "#"
     },
     {
       title: "QuickCart - E-commerce Website",
       description: "A modern e-commerce platform featuring product listings, featured products section, and newsletter subscription. Built with responsive design principles for optimal viewing on all devices.",
-      image: "/project-placeholder.svg",
+      image: "/quick-cart.jpg.svg",
       link: "http://quick-cart-six-smoky.vercel.app"
     }
   ];
@@ -28,8 +28,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-2">Recent Work</h2>
         <p className="text-text-secondary mb-12 max-w-3xl">
-          Solving user & business problems since last 15+ years.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Check out some of my recent projects below.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

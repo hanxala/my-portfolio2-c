@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f0f0f0"/>
+  <text x="400" y="300" font-family="Arial" font-size="48" text-anchor="middle" fill="#3b6fe0">QuickCart</text>
+  <text x="400" y="360" font-family="Arial" font-size="24" text-anchor="middle" fill="#6b7280">E-commerce Platform</text>
+  <rect x="250" y="400" width="300" height="60" rx="10" fill="#3b6fe0"/>
+  <text x="400" y="440" font-family="Arial" font-size="24" text-anchor="middle" fill="white">Shop Now</text>
+</svg>
